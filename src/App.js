@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import QuoteBox from './components/QuoteBox';
+import Header from './components/Header/Header';
+import QuoteBox from './components/QuoteBox/QuoteBox';
 
 class App extends Component {
   state = {
@@ -29,7 +29,7 @@ class App extends Component {
         const { quoteAuthor, quoteText } = data;
         const quote = {
           text: quoteText,
-          author: quoteAuthor
+          author: quoteAuthor || 'Unknown'
         };
         this.setState({
           isFetching: !this.state.isFetching,
@@ -46,9 +46,11 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className="container">
         <Header title="Random Quote Machine" />
-        <QuoteBox quote={quote} onNewQuote={this.getNewQuote} />
+        <div id="quote-box">
+          <QuoteBox quote={quote} onNewQuote={this.getNewQuote} />
+        </div>
       </div>
     );
   }
