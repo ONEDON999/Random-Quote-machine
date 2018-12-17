@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteBox = ({ quote }) => (
+const QuoteBox = ({ quote, onNewQuote }) => (
   <div id="quote-box">
     <p id="text">{quote.text}</p>
     <p id="author">{quote.author}</p>
@@ -12,7 +12,7 @@ const QuoteBox = ({ quote }) => (
     >
       Tweet
     </a>
-    <button id="new-quote">
+    <button id="new-quote" onClick={onNewQuote}>
       New Quote
     </button>
   </div>
