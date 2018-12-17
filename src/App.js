@@ -41,15 +41,12 @@ class App extends Component {
 
   render() {
     const { isFetching, quote } = this.state;
-    if (isFetching) {
-      return <div>Loading....</div>;
-    }
-
+    
     return (
       <div className="container">
         <Header title="Random Quote Machine" />
         <div id="quote-box">
-          <QuoteBox quote={quote} onNewQuote={this.getNewQuote} />
+          <QuoteBox quote={quote} onNewQuote={this.getNewQuote} isFetching={isFetching} />
         </div>
       </div>
     );

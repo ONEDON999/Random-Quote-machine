@@ -1,18 +1,15 @@
 import React, { Fragment } from 'react';
 import './QuoteBox.css';
+import Spinner from '../Spinner/Spinner';
+import Quote from '../Quote';
 
-const QuoteBox = ({ quote, onNewQuote }) => (
+const QuoteBox = ({ quote, onNewQuote, isFetching }) => (
   <Fragment>
     <div className="quote-content">
-      <p id="text">
-        <span className="quote-content-icon">
-          <i className="fas fa-quote-left" />
-        </span>
-        {quote.text}
-      </p>
-      <p id="author">
-        &mdash;<em>{quote.author}</em>
-      </p>
+      {isFetching && <Spinner />}
+      <div className={isFetching ? 'hide-quote' : ''}>
+        <Quote quote={quote} />
+      </div>
     </div>
     <div className="quote-controls">
       <a
@@ -26,7 +23,7 @@ const QuoteBox = ({ quote, onNewQuote }) => (
         <i className="fab fa-twitter" /> Tweet
       </a>
       <button id="new-quote" onClick={onNewQuote}>
-        <i class="fab fa-telegram-plane" /> New Quote
+        <i className="fab fa-telegram-plane" /> New Quote
       </button>
     </div>
   </Fragment>
