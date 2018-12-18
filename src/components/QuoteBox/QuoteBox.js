@@ -4,6 +4,7 @@ import Spinner from '../Spinner/Spinner';
 import Quote from '../Quote';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import ThemeList from '../ThemeList/ThemeList';
+import PropTypes from 'prop-types';
 
 const QuoteBox = ({
   quote,
@@ -44,5 +45,14 @@ const QuoteBox = ({
     </div>
   </Fragment>
 );
+
+QuoteBox.propTypes = {
+  quote: PropTypes.object,
+  onNewQuote: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+  onChangeTheme: PropTypes.func,
+  activeTheme: PropTypes.string
+};
 
 export default QuoteBox;

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const Quote = ({ quote }) => (
   <Fragment>
@@ -13,5 +14,12 @@ const Quote = ({ quote }) => (
     </p>
   </Fragment>
 );
+
+Quote.propTypes = {
+  quote: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired
+  })
+};
 
 export default Quote;
