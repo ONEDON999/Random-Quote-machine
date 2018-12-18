@@ -1,3 +1,9 @@
+# random-quote-machine
+
+A random quote machine built with React.
+
+Live project link: <https://rmasianjr.github.io/random-quote-machine/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
