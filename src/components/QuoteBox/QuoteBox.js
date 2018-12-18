@@ -24,7 +24,12 @@ const QuoteBox = ({ quote, onNewQuote, isFetching, isError }) => (
       >
         <i className="fab fa-twitter" /> Tweet
       </a>
-      <button id="new-quote" onClick={onNewQuote}>
+      <button
+        type="button"
+        id="new-quote"
+        onClick={onNewQuote}
+        disabled={isFetching}
+      >
         <i className="fab fa-telegram-plane" /> New Quote
       </button>
     </div>
