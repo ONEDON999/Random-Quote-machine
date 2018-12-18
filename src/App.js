@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import QuoteBox from './components/QuoteBox/QuoteBox';
+import Theme from './components/Theme/Theme';
 
 class App extends Component {
   state = {
@@ -10,7 +11,8 @@ class App extends Component {
       text: '',
       author: ''
     },
-    error: false
+    error: false,
+    theme: '#3498db'
   };
 
   componentDidMount() {
@@ -47,21 +49,31 @@ class App extends Component {
       });
   };
 
+  handleThemeColor = color => {
+    this.setState({
+      theme: color
+    });
+  };
+
   render() {
-    const { isFetching, quote, error } = this.state;
+    const { isFetching, quote, error, theme } = this.state;
 
     return (
-      <div className="container">
-        <Header title="Random Quote Machine" />
-        <div id="quote-box">
-          <QuoteBox
-            quote={quote}
-            onNewQuote={this.getNewQuote}
-            isFetching={isFetching}
-            isError={error}
-          />
+      <Theme theme={theme}>
+        <div className="container">
+          <Header title="Random Quote Machine" />
+          <div id="quote-box">
+            <QuoteBox
+              quote={quote}
+              onNewQuote={this.getNewQuote}
+              isFetching={isFetching}
+              isError={error}
+              onChangeTheme={this.handleThemeColor}
+              activeTheme={theme}
+            />
+          </div>
         </div>
-      </div>
+      </Theme>
     );
   }
 }

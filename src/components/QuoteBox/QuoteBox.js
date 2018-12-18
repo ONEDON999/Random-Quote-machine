@@ -3,8 +3,16 @@ import './QuoteBox.css';
 import Spinner from '../Spinner/Spinner';
 import Quote from '../Quote';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ThemeList from '../ThemeList/ThemeList';
 
-const QuoteBox = ({ quote, onNewQuote, isFetching, isError }) => (
+const QuoteBox = ({
+  quote,
+  onNewQuote,
+  isFetching,
+  isError,
+  onChangeTheme,
+  activeTheme
+}) => (
   <Fragment>
     <div className="quote-content">
       {isFetching && <Spinner />}
@@ -13,6 +21,7 @@ const QuoteBox = ({ quote, onNewQuote, isFetching, isError }) => (
         <Quote quote={quote} />
       </div>
     </div>
+    <ThemeList onChangeTheme={onChangeTheme} activeTheme={activeTheme} />
     <div className="quote-controls">
       <a
         href={`https://twitter.com/intent/tweet?text=${quote.text}- ${
