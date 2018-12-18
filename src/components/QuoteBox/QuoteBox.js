@@ -2,12 +2,14 @@ import React, { Fragment } from 'react';
 import './QuoteBox.css';
 import Spinner from '../Spinner/Spinner';
 import Quote from '../Quote';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-const QuoteBox = ({ quote, onNewQuote, isFetching }) => (
+const QuoteBox = ({ quote, onNewQuote, isFetching, isError }) => (
   <Fragment>
     <div className="quote-content">
       {isFetching && <Spinner />}
-      <div className={isFetching ? 'hide-quote' : ''}>
+      {isError && <ErrorMessage />}
+      <div className={isFetching || isError ? 'hide-quote' : ''}>
         <Quote quote={quote} />
       </div>
     </div>

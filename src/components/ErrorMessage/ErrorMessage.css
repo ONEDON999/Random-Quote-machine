@@ -1,0 +1,13 @@
+.error-box {
+  text-align: center;
+  margin-top: 1.8rem;
+  color: #c74040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-box i {
+  font-size: 3.4rem;
+  margin-right: 0.5rem;
+}

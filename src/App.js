@@ -9,7 +9,8 @@ class App extends Component {
     quote: {
       text: '',
       author: ''
-    }
+    },
+    error: false
   };
 
   componentDidMount() {
@@ -18,7 +19,8 @@ class App extends Component {
 
   getNewQuote = () => {
     this.setState({
-      isFetching: !this.state.isFetching
+      isFetching: !this.state.isFetching,
+      error: false
     });
 
     fetch(
@@ -36,17 +38,28 @@ class App extends Component {
           quote
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        this.setState({
+          error: true,
+          isFetching: !this.state.isFetching
+        });
+      });
   };
 
   render() {
-    const { isFetching, quote } = this.state;
-    
+    const { isFetching, quote, error } = this.state;
+
     return (
       <div className="container">
         <Header title="Random Quote Machine" />
         <div id="quote-box">
-          <QuoteBox quote={quote} onNewQuote={this.getNewQuote} isFetching={isFetching} />
+          <QuoteBox
+            quote={quote}
+            onNewQuote={this.getNewQuote}
+            isFetching={isFetching}
+            isError={error}
+          />
         </div>
       </div>
     );
