@@ -1,0 +1,28 @@
+.footer {
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.footer span {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.footer p {
+  margin-top: 0.5rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #f1c40f;
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s ease-out;
+}
+
+.footer-link:hover {
+  color: #ccc;
+  border-bottom: 1px solid #f1c40f;
+}

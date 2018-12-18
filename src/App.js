@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import QuoteBox from './components/QuoteBox/QuoteBox';
 import Theme from './components/Theme/Theme';
+import Footer from './components/Footer/Footer';
 
 class App extends Component {
   state = {
@@ -72,6 +73,7 @@ class App extends Component {
               activeTheme={theme}
             />
           </div>
+          <Footer />
         </div>
       </Theme>
     );
